@@ -1394,7 +1394,7 @@ const Methods = {
           if (fixedWrapperElem) {
             const isRightFixed = fixedType === 'right'
             const fixedColumn = columnStore[`${fixedType}List`]
-            wrapperElem.style.top = `${headerHeight}px`
+            wrapperElem.style.top = `${headerHeight+(footerHeight?footerHeight-1:0)}px`
             fixedWrapperElem.style.height = `${(customHeight > 0 ? customHeight - headerHeight - footerHeight : tableHeight) + headerHeight + footerHeight - scrollbarHeight * (showFooter ? 2 : 1)}px`
             fixedWrapperElem.style.width = `${fixedColumn.reduce((previous, column) => previous + column.renderWidth, isRightFixed ? scrollbarWidth : 0)}px`
           }
@@ -1434,7 +1434,7 @@ const Methods = {
           if (wrapperElem) {
             // 如果是固定列
             if (fixedWrapperElem) {
-              wrapperElem.style.top = `${customHeight > 0 ? customHeight - footerHeight : tableHeight + headerHeight}px`
+              wrapperElem.style.top = `$ headerHeight}px`
             }
             wrapperElem.style.marginTop = `${-scrollbarHeight}px`
           }
